@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmpr237vrfxwh"]
+
+[ext_resource type="PackedScene" uid="uid://cadl6hjl3d2cy" path="res://actors/player/player.tscn" id="2_daqma"]
+[ext_resource type="PackedScene" uid="uid://c8aloe8fjvwr4" path="res://scenes/components/transition_effect.tscn" id="4_hgddd"]
+[ext_resource type="PackedScene" uid="uid://5j4hgwk86tty" path="res://scenes/endless.tscn" id="4_lbhrr"]
+
+[node name="Game" type="Node"]
+
+[node name="TransitionEffect" parent="." instance=ExtResource("4_hgddd")]
+process_mode = 3
+
+[node name="World" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="World" instance=ExtResource("2_daqma")]
+position = Vector2(360, 643)
+
+[node name="LevelRoot" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="Node2D" parent="World/LevelRoot" instance=ExtResource("4_lbhrr")]
